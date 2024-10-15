@@ -5,10 +5,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MidDeveloper extends Developer{
-    public MidDeveloper(Experience experience, double salary, String name, int id) {
-        super(id , name , salary , experience);
+
+
+    public MidDeveloper(int id, String name, double salary) {
+        super(id, name, salary, Experience.MID);
     }
 
-    public MidDeveloper(int i, String testDeveloper, double v) {
-    }
+
+
+
 }

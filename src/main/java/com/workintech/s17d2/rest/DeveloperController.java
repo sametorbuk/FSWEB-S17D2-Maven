@@ -9,6 +9,7 @@ import com.workintech.s17d2.tax.Taxable;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -51,13 +52,13 @@ public class DeveloperController {
     }
 
     @PostMapping("/developers")
+    @ResponseStatus(HttpStatus.CREATED)
+
     public Developer  newDeveloper(@RequestBody Developer developer){
         int id = (int) developer.getId();
         String name = developer.getName();
         Experience experience = developer.getExperience();
         double salary = developer.getSalary();
-
-
         switch (experience) {
             case JUNIOR:
                 salary -= developerTax.getSimpleTaxRate();
@@ -86,8 +87,9 @@ public class DeveloperController {
 
      @DeleteMapping("/developers/{id}")
     public Developer deleteDeveloper(@PathVariable int id){
-        developers.remove(id);
-        return developers.get(id);
+        Developer deletedDeveloper = developers.remove(id);
+        return  deletedDeveloper;
+
      }
 
 

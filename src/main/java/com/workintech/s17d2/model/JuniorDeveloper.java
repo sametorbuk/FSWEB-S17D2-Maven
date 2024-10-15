@@ -6,11 +6,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JuniorDeveloper extends Developer{
-    public JuniorDeveloper(Experience experience, double salary, String name, int id) {
-        super(id , name , salary , experience);
+
+    public JuniorDeveloper(int id, String name, double salary) {
+        super(id, name, salary, Experience.JUNIOR);
     }
 
-    public JuniorDeveloper(int i, String testDeveloper, double v) {
-        super();
-    }
+
 }

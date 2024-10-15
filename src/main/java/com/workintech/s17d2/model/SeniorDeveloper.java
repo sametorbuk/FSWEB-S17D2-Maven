@@ -7,11 +7,10 @@ import org.springframework.stereotype.Component;
 public class SeniorDeveloper extends Developer{
 
 
-    public SeniorDeveloper(Experience experience, double salary, String name, int id) {
-        super(id , name , salary , experience);
+    public SeniorDeveloper(int id, String name, double salary) {
+        super(id, name, salary, Experience.SENIOR);
     }
 
 
-    public SeniorDeveloper(int i, String testDeveloper, double v) {
-    }
+
 }
